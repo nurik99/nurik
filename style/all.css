@@ -1,4 +1,6 @@
 @import url('vendor/reset.css');
 @import url('components/header.css');
 @import url('components/header-mobile.css') screen and (max-width: 769px);
+@import url('components/filter.css');
+@import url('components/filter-mobile.css') screen and (max-width: 769px);
 

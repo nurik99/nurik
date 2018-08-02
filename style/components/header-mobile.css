@@ -1,3 +1,14 @@
+.header-inner {
+	margin: 0 3%;
+}
 .header-link a{
 	display: none;
+}
+/*headerInfo*/
+
+.headerInfo-inner {
+	margin: 0 1%;
+}
+.sup-search__support {
+	margin-right: 0px;
 }

@@ -1,0 +1,59 @@
+.filter {
+	background-color: #fff;
+	display: flex;
+	margin: 3% 5%;
+	height: 60px;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 14px;
+	font-weight: 600;
+}
+.sort {
+	display: flex;
+	align-items: center;
+}
+.radio {
+	border: none;
+	color: rgba(0, 0, 0, .5);
+	outline: none;
+	width: 100px;
+	margin-left: 30px;
+}
+.sort__keyw {
+	margin: 0 10px;
+	color: rgba(0, 0, 0, .5);
+}
+
+.sort__keyInput {
+	border: 1px solid #E4E5E7;
+	border-radius: 15px;
+	background-color: #F0F2F7;
+	color: rgba(0, 0, 0, .5);
+	outline: none;
+	width: 100px;
+	margin: 0 20px 0 0;
+	padding: 8px;
+}
+
+.price input {
+	border: 1px solid #E4E5E7;
+	border-radius: 15px;
+	background-color: #F0F2F7;
+	color: rgba(0, 0, 0, .5);
+	outline: none;
+	width: 50px;
+	padding: 5px;
+}
+.price__free {
+	margin-left: 80px;
+}
+.country span {
+	margin-right: 10px;
+}
+.country input {
+	border: none;
+	color: rgba(0, 0, 0, .5);
+	outline: none;
+	width: 100px;
+	margin-left: 30px;
+}
