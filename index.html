@@ -10,10 +10,12 @@
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body style="background-color: #E4E5E7;">
-	<section class="none">cvfv</section>
+	<section class="backdrop" id="backdrop" onclick="backNone()"></section>
+	<section class="mobile" id="mobile">cvfv</section>
 	<section class="header">
 		<div class="header-inner">
 			<div class="header-logo">
+				<img src="img/menu.svg" alt="menu" class="menu-icon" id="menu-icon" onclick="menu()">
 				<span>Portland</span>
 			</div>
 			<div class="header-link">
@@ -84,7 +86,12 @@
 			<input type="text">
 		</div>
 	</section>
-	<!--  -->
+	<!-- Content -->
+	<section class="content">
+		<div class="content-filter"></div>
+		<div class="content-inner"></div>
+	</section>
 </body>
 <script src="js/carusel.js"></script>
+<script src="js/menu.js"></script>
 </html>

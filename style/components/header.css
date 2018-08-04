@@ -57,10 +57,17 @@ body {
 	padding: 10px 20px;
 	border-radius: 20px;
 }
-.none {
+.mobile {
 	display: none;
 }
-
+.menu-icon {
+	display: none;
+	width: 20px;
+	padding-right: 25px;
+}
+.backdrop {
+	display: none;
+}
 /*headerInfo*/
 .headerInfo {
 	background-color: #fff;
