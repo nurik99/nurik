@@ -9,7 +9,7 @@ menu = () => {
 		mobile.style.left = "-40%";
 	}
 }
-function backNone() {
+backNone = () => {
 	mobile.style.left = "-40%";
 	backdrop.style.display = "none";
 }

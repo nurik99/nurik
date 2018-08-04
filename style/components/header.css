@@ -70,6 +70,7 @@ body {
 }
 /*headerInfo*/
 .headerInfo {
+	width: 100%;
 	background-color: #fff;
 	width: 100%;
 	height: auto;
