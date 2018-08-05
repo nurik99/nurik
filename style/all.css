@@ -6,4 +6,5 @@
 @import url('components/slider.css');
 @import url('components/content.css');
 @import url('components/content-mobile.css') screen and (max-width: 769px);
+@import url('components/scrollbar.css');
 
