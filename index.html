@@ -57,15 +57,24 @@
 		</div>
 	</section>
 	<!-- Carusel -->
-	<!-- Exemple Carusel -->
-	<section class="carusel">
-		<div class="carusel-inner1" id="btn1" onclick="nextSlide()">
-			<div class="carusel-inner__img1">img#1</div>
+	
+	<section class = "slider">
+		<div class = "slider-inner" id = "slider">
+			<div class = "slider-item" style = "background-image: url(img/slide1.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide2.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide3.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide4.jpg)"></div>				
 		</div>
-		<div class="carusel-inner2" id="btn2"  onclick="nextSlide()">
-			<div class="carusel-inner__img2"">img#2</div>
+		<img src="img/caret-left.png" class = "arrow arrow--left" onclick = "backSlide()">
+		<img src="img/caret-right.png" class = "arrow arrow--right" onclick = "nextSlide()">
+		<div class = "slider-ind">
+			<div class = "slider-ind__slide active" onclick="setSlidebyIndicator(0)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(1)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(2)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(3)"></div>
 		</div>
 	</section>
+	
 	<!-- Filter -->
 	<section class="filter">
 		<div class="sort">
@@ -92,6 +101,6 @@
 		<div class="content-inner"></div>
 	</section>
 </body>
-<script src="js/carusel.js"></script>
+<script src="js/slider.js"></script>
 <script src="js/menu.js"></script>
 </html>
