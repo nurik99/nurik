@@ -19,21 +19,27 @@
 			background-position: center;
 		}
 		.arrow {
-			width: 20px;
-			height: 20px;
-			background-color: rgba(255,255,255,.5);
+			width: 15px;
+			height: 15px;
+			background-color: transparent;
 			position: absolute;
 			top: calc(50% - 30px);
 			padding: 15px;
 			box-sizing: content-box;
+			border: 3px solid rgba(255,255,255,.6);
 			border-radius: 50%;
 			cursor: pointer;	
 		}
+		.arrow:hover {
+			background-color: rgba(255,255,255,.3);
+		}
 		.arrow--right {
 			right: 5%;
+			transform: rotate(90deg);
 		}
 		.arrow--left {
 			left: 5%;
+			transform: rotate(-90deg);
 		}
 
 		.slider-ind {
@@ -45,16 +51,16 @@
 		}
 			.slider-ind__slide {
 				margin: 0 10px;
-				background-color: rgba(255,255,255,.6);
-				width: 15px;
-				height: 15px;
+				background-color: transparent;
+				width: 10px;
+				height: 10px;
+				border: 2px solid rgba(255,255,255,.6);
 				border-radius: 50%;
 				cursor: pointer;
 			}
 			.slider-ind__slide.active {
-				background-color: rgba(0,0,0,.8);
+				background-color: rgba(255,255,255,.6);
 			}
-
 
 
 @media screen and (max-width: 769px) {
