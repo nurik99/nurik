@@ -36,9 +36,10 @@ function nextSlide() {
 		setActive();
 		setSlide();
 	}
-	setTimeout(function() {
-  		slider_nurik();
-	}, 10000);
+	// setTimeout(function() {
+	// 	slider_nurik();
+	// 	console.log("slider started");
+	// }, 10000);
 }
 
 function backSlide(){
@@ -55,9 +56,10 @@ function backSlide(){
 		setActive();
 		setSlide();
 	}
-	setTimeout(function() {
-  		slider_nurik();
-	}, 10000);
+	// setTimeout(function() {
+	// 	slider_nurik();
+	// 	console.log("slider started");
+	// }, 10000);
 }
 
 function setSlidebyIndicator(index) {
@@ -81,7 +83,7 @@ var timerId = setInterval(function() {
 		setSlide();
 	}
 }, time);
-slider_nurik = () => {
+function slider_nurik() {
 	var timerId = setInterval(function() {
 		if (current_slide == len - 1) {
 			removeActive();
