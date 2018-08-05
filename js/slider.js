@@ -10,13 +10,6 @@ for (var i = 0; i <len; i++){
 	slider_list[i].style.width = (100/len) + "%";
 }
 
-if(current_slide == 0) {
-	document.getElementById('prev').style.display = "none";
-}
-else {
-	document.getElementById('prev').style.display = "block";
-}
-
 function setSlide() {
 	slider.style.left = (-100 * current_slide) + '%';
 }
@@ -36,18 +29,12 @@ function nextSlide() {
 		current_slide = len - len;
 		setActive();
 		setSlide();
-		document.getElementById('prev').style.display = "none";
 	}
 	else {
-		if (current_slide == len - 2)
-			document.getElementById('next').style.display = "none";
-		else
-			document.getElementById('next').style.display = "block";
 		removeActive();
 		current_slide++;
 		setActive();
 		setSlide();
-		document.getElementById('prev').style.display = "block";
 	}
 	// setTimeout(function() {
 	// 	slider_nurik();
@@ -62,19 +49,12 @@ function backSlide(){
 		current_slide = len - 1;
 		setActive();
 		setSlide();
-		document.getElementById('prev').style.display = "block";
 	}
 	else {
-		if (current_slide == len)
-			document.getElementById('next').style.display = "none";
-		else
-			document.getElementById('next').style.display = "block";
 		removeActive();
 		current_slide--;
 		setActive();
 		setSlide();
-		if (current_slide == 0)
-			document.getElementById('prev').style.display = "none";
 	}
 	// setTimeout(function() {
 	// 	slider_nurik();
