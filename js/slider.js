@@ -63,6 +63,7 @@ function backSlide(){
 }
 
 function setSlidebyIndicator(index) {
+	clearInterval(timerId)
 	removeActive();
 	current_slide = index;
 	setActive();
