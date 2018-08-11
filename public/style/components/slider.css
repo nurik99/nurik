@@ -34,10 +34,12 @@
 			background-color: rgba(255,255,255,.3);
 		}
 		.arrow--right {
+			display: block;
 			right: 5%;
 			transform: rotate(90deg);
 		}
 		.arrow--left {
+			display: none;
 			left: 5%;
 			transform: rotate(-90deg);
 		}

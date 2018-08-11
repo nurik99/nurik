@@ -3,11 +3,24 @@ var slider_list = document.getElementsByClassName('slider-item');
 var len = slider_list.length;
 var current_slide = 0;
 var indicator_list = document.getElementsByClassName('slider-ind__slide');
+var prev = document.getElementById('prev');
+var next = document.getElementById('next');
 
 slider.style.width = (len * 100)+ "%";
 
 for (var i = 0; i <len; i++){
 	slider_list[i].style.width = (100/len) + "%";
+}
+
+function HideShow() {
+	if(current_slide == len - len)
+		prev.style.display = "none";
+	else
+		prev.style.display = "block";
+	if(current_slide == len - 1)
+		next.style.display = "none";
+	else
+		next.style.display = "block";
 }
 
 function setSlide() {
@@ -29,17 +42,16 @@ function nextSlide() {
 		current_slide = len - len;
 		setActive();
 		setSlide();
+		HideShow();
 	}
 	else {
 		removeActive();
 		current_slide++;
 		setActive();
 		setSlide();
+		HideShow();
 	}
-	// setTimeout(function() {
-	// 	slider_nurik();
-	// 	console.log("slider started");
-	// }, 10000);
+	console.log(current_slide);
 }
 
 function backSlide(){
@@ -49,17 +61,15 @@ function backSlide(){
 		current_slide = len - 1;
 		setActive();
 		setSlide();
+		HideShow();
 	}
 	else {
 		removeActive();
 		current_slide--;
 		setActive();
 		setSlide();
+		HideShow();
 	}
-	// setTimeout(function() {
-	// 	slider_nurik();
-	// 	console.log("slider started");
-	// }, 10000);
 }
 
 function setSlidebyIndicator(index) {
@@ -68,6 +78,7 @@ function setSlidebyIndicator(index) {
 	current_slide = index;
 	setActive();
 	setSlide();
+	HideShow();
 }
 var time = 6000;
 var timerId = setInterval(function() {
@@ -76,27 +87,13 @@ var timerId = setInterval(function() {
 		current_slide = len - len;
 		setActive();
 		setSlide();
+		HideShow();
 	}
 	else {
 		removeActive();
 		current_slide++;
 		setActive();
 		setSlide();
+		HideShow();
 	}
 }, time);
-function slider_nurik() {
-	var timerId = setInterval(function() {
-		if (current_slide == len - 1) {
-			removeActive();
-			current_slide = len - len;
-			setActive();
-			setSlide();
-		}
-		else {
-			removeActive();
-			current_slide++;
-			setActive();
-			setSlide();
-		}
-	}, time);
-}
