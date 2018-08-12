@@ -13,3 +13,12 @@ backNone = () => {
 	mobile.style.left = "-40%";
 	backdrop.style.display = "none";
 }
+var newmenu = document.getElementById('newmenu');
+function NewMenu1() {
+	newmenu.style.display = 'block';
+	console.log('Sucess');
+}
+function NewMenu2() {
+	newmenu.style.display = 'none';
+	console.log('Sucess');
+}
