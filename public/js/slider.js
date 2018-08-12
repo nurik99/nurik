@@ -51,7 +51,6 @@ function nextSlide() {
 		setSlide();
 		HideShow();
 	}
-	console.log(current_slide);
 }
 
 function backSlide(){

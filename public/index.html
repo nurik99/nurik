@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="portland">
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +41,7 @@
 	<section class="headerInfo">
 		<div class="headerInfo-inner">
 			<div class="info-links">
-				<a href="#">TOP SALES</a>
+				<a href="#" ng-sref = "home">TOP SALES</a>
 				<a href="#">BRAND FOCUS</a>
 				<a href="#">HI-TECH</a>
 				<a href="#">BEST SELLERS</a>
@@ -131,4 +131,11 @@
 </body>
 <script src="js/slider.js"></script>
 <script src="js/menu.js"></script>
+<!-- app js -->
+<script src="/js/vendor/ng.min.js"></script>
+<script src="/js/vendor/ng-route.min.js"></script>
+<script src="/app.js"></script>
+<!-- cantrollers -->
+<script src="/js/controllers/HomeCtrl.js"></script>
+<!--  -->
 </html>
