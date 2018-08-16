@@ -7,4 +7,5 @@
 @import url('components/content.css');
 @import url('components/content-mobile.css') screen and (max-width: 769px);
 @import url('components/scrollbar.css');
+@import url('components/checkbox.css');
 

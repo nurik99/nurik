@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="portland">
+<html lang="en" ng-app="portland">
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style/all.css">
@@ -93,7 +94,19 @@
 			<input type="number">
 			<span> - </span>
 			<input type="number">
-			<span class="price__free">Free Shopping</span>
+			<span class="price__free">
+					<div class="center">
+	  					<label class="label">
+	    					<input  class="label__checkbox" type="checkbox" />
+	    					<span class="label__text">
+	      					<span class="label__check">
+	        					<i class="fa fa-check icon"></i>
+	      					</span>
+	    					</span>
+	  					</label>
+					</div>
+				Free Shopping
+			</span>
 		</div>
 		<div class="country">
 			<span>SHIP TO</span>
@@ -104,33 +117,66 @@
 	<section class="content">
 		<div class="content-filter">a</div>
 		<div class="content-inner">
+		<div class="content-inner__add">
 			<div class="content-cart">
-				<div class="content-cart__img"></div>
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo1.png"></div>
 				<div class="content-cart__title">
-					Lorem ipsum dolor sit amet.
+					 Apple TV 32GB
 				</div>
 				<div class="content-cart__subtitle">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur in magnam itaque nulla, cupiditate soluta debitis iure vero. Adipisci, vero.
+					<p>$49.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
 				</div>
 			</div>
 			<div class="content-cart">
-				<div class="content-cart__img"></div>
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo2.png"></div>
 				<div class="content-cart__title">
-					Lorem ipsum dolor sit amet.
+					 Pebble Time
 				</div>
 				<div class="content-cart__subtitle">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur in magnam itaque nulla, cupiditate soluta debitis iure vero. Adipisci, vero.
+					<p>$29.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
 				</div>
 			</div>
 			<div class="content-cart">
-				<div class="content-cart__img"></div>
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo3.png" style= "width: 250px;"></div>
 				<div class="content-cart__title">
-					Lorem ipsum dolor sit amet.
+					 Apple TV 32GB
 				</div>
 				<div class="content-cart__subtitle">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur in magnam itaque nulla, cupiditate soluta debitis iure vero. Adipisci, vero.
+					<p>$49.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
 				</div>
 			</div>
+		</div>
+		<div class="content-inner__add">
+			<div class="content-cart">
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo4.png"></div>
+				<div class="content-cart__title">
+					Withings Smart Body <br>
+					Analyzer ws-50
+				</div>
+				<div class="content-cart__subtitle">
+					<p>$39.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
+				</div>
+			</div>
+			<div class="content-cart">
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo5.png"></div>
+				<div class="content-cart__title">
+					Ollo Clip New
+				</div>
+				<div class="content-cart__subtitle">
+					<p>$19.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
+				</div>
+			</div>
+			<div class="content-cart">
+				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo6.png"></div>
+				<div class="content-cart__title">
+					Fitbit Charge HR Heart Rate <br>
+					and Activity Tracker
+				</div>
+				<div class="content-cart__subtitle">
+					<p>$19.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
+				</div>
+			</div>
+		</div>
 		</div>
 	</section>
 </body>
