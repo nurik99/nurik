@@ -1,4 +1,4 @@
-var slider = document.getElementById('slider-inner');
+var slider = document.getElementById('slider');
 var slider_list = document.getElementsByClassName('slider-item');
 var len = slider_list.length;
 var current_slide = 0;
@@ -72,14 +72,14 @@ function backSlide(){
 }
 
 function setSlidebyIndicator(index) {
-	clearInterval(timerId)
+	clearInterval(timerId);
 	removeActive();
 	current_slide = index;
 	setActive();
 	setSlide();
 	HideShow();
 }
-var time = 6000;
+var time = 5000;
 var timerId = setInterval(function() {
 	if (current_slide == len - 1) {
 		removeActive();
@@ -96,3 +96,6 @@ var timerId = setInterval(function() {
 		HideShow();
 	}
 }, time);
+// document.addEventListener("DOMContentLoaded", function(event) { 
+	
+// });
