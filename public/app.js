@@ -1,6 +1,4 @@
-var app = angular.module('portland', []);
-
-var app = angular.module('decode', [
+var app = angular.module('portland', [
 	'ui.router',
 	'ngCookies'
 ]);
