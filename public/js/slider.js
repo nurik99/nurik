@@ -1,4 +1,4 @@
-var slider = document.getElementById('slider');
+var slider = document.getElementById('slider-inner');
 var slider_list = document.getElementsByClassName('slider-item');
 var len = slider_list.length;
 var current_slide = 0;

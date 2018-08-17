@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="portland">
+<html ng-app="decode">
 <head>
+	<base href="/">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Portland</title>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body style="background-color: #E4E5E7;">
 	<section class="backdrop" id="backdrop" onclick="backNone()"></section>
@@ -20,7 +20,7 @@
 				<span>Izbasarov</span>
 			</div>
 			<div class="header-link">
-				<a href="#">Home</a>
+				<a ui-sref ="basket">Home</a>
 				<a href="#">Devices</a>
 				<a href="#">Delivery & Payment</a>
 				<a href="#">Guarantee</a>
@@ -57,18 +57,44 @@
 			</div>
 		</div>
 	</section>
-	
-	<ui-view>
+		<!-- dropdown menu -->
 
+	<section class="newmenu" id="newmenu">
+		csds
+	</section>
+	<!-- Carusel -->
+	
+	<section class = "slider">
+		<div class = "slider-inner" id = "slider-inner">
+			<div class="slider-item" style = "background-image: url(img/slide1.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide2.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide3.jpg)"></div>
+			<div class = "slider-item" style = "background-image: url(img/slide4.jpg)"></div>			
+		</div>
+		<img src="img/caret-symbol.png" class = "arrow arrow--left" onclick = "backSlide()" id="prev">
+		<img src="img/caret-symbol.png" class = "arrow arrow--right" onclick = "nextSlide()" id="next">
+		<div class = "slider-ind">
+			<div class = "slider-ind__slide active" onclick="setSlidebyIndicator(0)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(1)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(2)"></div>
+			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(3)"></div>
+		</div>
+	</section>
+
+	<ui-view>
+		
 	</ui-view>
 </body>
+<script type="text/javascript" src="/js/vendor/ng.min.js"></script>
+<script type="text/javascript" src="/js/vendor/ng-route.min.js"></script>
+<script type="text/javascript" src="/js/vendor/ng-cookies.min.js"></script>
+<script type="text/javascript" src="/app.js"></script>
+
+<script type="text/javascript" src="/js/controllers/local.js"></script>
+<script type="text/javascript" src="/js/controllers/home.js"></script>
+<script type="text/javascript" src="/js/controllers/basket.js"></script>
+
 <script src="js/slider.js"></script>
 <script src="js/menu.js"></script>
-<!-- app js -->
-<script src="/js/vendor/ng.min.js"></script>
-<script src="/js/vendor/ng-route.min.js"></script>
-<script src="/app.js"></script>
-<!-- cantrollers -->
-<script src="/js/controllers/HomeCtrl.js"></script>
-<!--  -->
+
 </html>
