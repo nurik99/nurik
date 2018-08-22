@@ -6,6 +6,7 @@ body {
 	width: 100%;
 	height: auto;
 	border-bottom: 1px solid #ccc;
+	transition: .6 ease-out;
 }
 .header-inner {
 	display: flex;

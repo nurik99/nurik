@@ -48,8 +48,8 @@ html {
 
 .center {
     position: absolute;
-    top: 110.8%;
-    left: 63%;
+    top: 110.5vh;
+    left: 128vh;
     transform: translate(-50%, -50%);
 }
 

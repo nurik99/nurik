@@ -51,6 +51,14 @@ function nextSlide() {
 		setSlide();
 		HideShow();
 	}
+	if(!setTimeout) {
+		setTimeout(function () {
+			timer();
+		}, 5000)
+	}
+	else {
+		return
+	}
 }
 
 function backSlide(){
@@ -69,6 +77,15 @@ function backSlide(){
 		setSlide();
 		HideShow();
 	}
+	if(!setTimeout) {
+		setTimeout(function () {
+			timer();
+		}, 5000)
+	}
+	else {
+		return
+	}
+	
 }
 
 function setSlidebyIndicator(index) {
@@ -80,6 +97,24 @@ function setSlidebyIndicator(index) {
 	HideShow();
 }
 var time = 5000;
+function timer() {
+	var timerId = setInterval(function() {
+		if (current_slide == len - 1) {
+			removeActive();
+			current_slide = len - len;
+			setActive();
+			setSlide();
+			HideShow();
+		}
+		else {
+			removeActive();
+			current_slide++;
+			setActive();
+			setSlide();
+			HideShow();
+		}
+	}, time);
+}
 var timerId = setInterval(function() {
 	if (current_slide == len - 1) {
 		removeActive();
@@ -88,7 +123,7 @@ var timerId = setInterval(function() {
 		setSlide();
 		HideShow();
 	}
-	else {
+else {
 		removeActive();
 		current_slide++;
 		setActive();
