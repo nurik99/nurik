@@ -1,7 +1,15 @@
 body {
 	font-family: 'Roboto', sans-serif;
 }
+.pad {
+	height: 122px;
+	width: 100%;
+}
 .header {
+	position:fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
 	background-color: #fff;
 	width: 100%;
 	height: auto;
@@ -71,6 +79,10 @@ body {
 }
 /*headerInfo*/
 .headerInfo {
+	position:fixed;
+	z-index: 50;
+	top: 76px;
+	left: 0;
 	width: 100%;
 	background-color: #fff;
 	width: 100%;

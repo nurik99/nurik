@@ -21,7 +21,7 @@
 				<span>Izbasarov</span>
 			</div>
 			<div class="header-link">
-				<a ui-sref ="basket">Home</a>
+				<a>Home</a>
 				<a href="#">Devices</a>
 				<a href="#">Delivery & Payment</a>
 				<a href="#">Guarantee</a>
@@ -30,10 +30,10 @@
 			<div class="header-auth">
 				<div class="header-auth-cart">
 					<div class="header-auth-cart__icon">
-						<img src="img/Shopping-Cart-Icon.jpg">
+						<img src="img/Shopping-Cart-Icon.jpg" ui-sref ="basket">
 					</div>
-					<div class="header-auth-cart__sub">CART</div>
-					<div class="header-auth-cart__num">0</div>
+					<div class="header-auth-cart__sub" ui-sref ="basket">CART</div>
+					<div class="header-auth-cart__num" ui-sref ="basket">0</div>
 				</div>
 				<div class="header-auth-sign">SIGN IN</div>
 			</div>
@@ -64,9 +64,9 @@
 		csds
 	</section>
 	<!-- Carusel -->
-	
+	<div class="pad"></div>
 	<section class = "slider">
-		<div class = "slider-inner" id = "slider">
+		<div class = "slider-inner" id = "slider" onclick = "nextSlide()">
 			<div class="slider-item" style = "background-image: url(img/slider1.jpg)">
 				<div class="slider-item__inner">
 					<div class="slider-item__start">

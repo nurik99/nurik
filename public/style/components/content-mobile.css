@@ -1,0 +1,15 @@
+.content-inner__add {
+	flex-direction: column;
+	padding-top:30px;
+	padding-bottom: none;
+}
+
+.content-cart {
+	background-color: #fff;
+	width: 485.5px;
+	height: 350px;
+}
+.content-cart__img {
+	width: 485.5px;
+	height: 250px;
+}
