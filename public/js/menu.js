@@ -1,5 +1,6 @@
 var mobile = document.getElementById('mobile');
 var backdrop = document.getElementById('backdrop');
+var signIn = document.getElementById('sign-in');
 menu = () => {
 	if(mobile.style.left == "-40%") {
 		mobile.style.left = "0";
@@ -12,6 +13,7 @@ menu = () => {
 backNone = () => {
 	mobile.style.left = "-40%";
 	backdrop.style.display = "none";
+	signIn.style.display = "none";
 }
 var newmenu = document.getElementById('newmenu');
 function NewMenu1() {
