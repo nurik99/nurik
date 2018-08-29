@@ -24,4 +24,10 @@ function routeConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'BasketCtrl',
 			controllerAs: 'vm'
 		})
+		.state('admin', {
+			url: '/admin',
+			templateUrl: '/views/admin.html',
+			controller: 'AdminCtrl',
+			controllerAs: 'vm'
+		})
 }
