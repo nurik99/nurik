@@ -24,7 +24,7 @@ body {
 	justify-content: space-between;
 }
 .header-logo {
-	font-size: 30px;
+	font-size: 28px;
 	font-family: 'Satisfy', cursive;
 }
 .header-link a{
@@ -45,7 +45,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-weight: 500;
-	margin-right: 20px;
+	margin-right: 50px;
 }
 .header-auth-cart__icon {
 	margin-right: 10px;
@@ -63,9 +63,18 @@ body {
 }
 .header-auth-sign {
 	cursor: pointer;
-	border: 1px solid #E7EBF2;
+	/*border: 1px solid #E7EBF2;
 	padding: 10px 20px;
-	border-radius: 20px;
+	border-radius: 20px;*/
+	position: absolute;
+	right: 0%;
+	width: 100px;
+	height: 50px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 0 0 0;
 }
 .mobile {
 	display: none;
@@ -87,7 +96,7 @@ body {
 .headerInfo {
 	position:fixed;
 	z-index: 50;
-	top: 76px;
+	top: 73px;
 	left: 0;
 	width: 100%;
 	background-color: #fff;

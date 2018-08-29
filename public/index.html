@@ -27,22 +27,22 @@
 	</section>
 	<section class="backdrop" id="backdrop" onclick="backNone()"></section>
 	<section class="mobile" id="mobile">cvfv</section>
-	<section class="sign-in" id="sign-in" onclick="signIn();">
+	<section class="sign-in" id="sign-in">
 		<div id="sign-in__div">
-			<input type="text" placeholder="login" class="sign-in__login">
-			<input type="password" class="sign-in__password">
+			<input type="text" placeholder="login" class="sign-in__login"><br>
+			<input type="password" placeholder="password" class="sign-in__password"><br>
 			<button class="btn__sign">Sign In</button>
 		</div>
 	</section>
-	
+	<section class="up" onclick="upScroll()">Up</section>
 	<section class="header" id="header">
 		<div class="header-inner">
 			<div class="header-logo">
 				<img src="img/menu.svg" alt="menu" class="menu-icon" id="menu-icon" onclick="menu()">
-				<span>Izbasarov</span>
+				<span>Izbasarov & Jansultan </span>
 			</div>
 			<div class="header-link">
-				<a href="#">Home</a>
+				<a ui-sref = "home">Home</a>
 				<a href="#">Devices</a>
 				<a href="#">Delivery & Payment</a>
 				<a href="#">Guarantee</a>
@@ -56,7 +56,7 @@
 					<div class="header-auth-cart__sub" ui-sref ="basket">CART</div>
 					<div class="header-auth-cart__num" ui-sref ="basket">0</div>
 				</div>
-				<div class="header-auth-sign" onclick="signIn()">SIGN IN</div>
+				<div class="header-auth-sign" id="header-auth-sign" onclick="signIn()">SIGN IN</div>
 			</div>
 		</div>
 	</section>
@@ -169,7 +169,7 @@
 
 	<section class="footer">
 		<div class="footer__links">
-			<span>Izbasarov</span>
+			<span>Izbasarov & Jansultan </span>
 			<div class="footer__link">
 				<a href="#">Home</a>
 				<a href="#">Devices</a>
@@ -193,6 +193,7 @@
 				<div>Terms and Conditions</div>
 			</div>
 		</div>
+		<div ui-sref="admin" style="color: #222328; border: 0.1px solid #220; cursor: default;">Admin</div>
 	</section>
 </body>
 <script type="text/javascript" src="/js/vendor/ng.min.js"></script>
@@ -203,6 +204,7 @@
 <script type="text/javascript" src="/js/controllers/local.js"></script>
 <script type="text/javascript" src="/js/controllers/home.js"></script>
 <script type="text/javascript" src="/js/controllers/basket.js"></script>
+<script type="text/javascript" src="/js/controllers/admin.js"></script>
 
 <!-- default js -->
 <script src="js/slider.js"></script>
