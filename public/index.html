@@ -2,7 +2,6 @@
 <html ng-app="decode">
 <head>
 	<base href="/">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style/all.css">
@@ -26,20 +25,36 @@
 		<!-- <div class="loader"></div> -->
 	</section>
 	<section class="backdrop" id="backdrop" onclick="backNone()"></section>
-	<section class="mobile" id="mobile">cvfv</section>
-	<section class="sign-in" id="sign-in">
-		<div id="sign-in__div">
-			<input type="text" placeholder="login" class="sign-in__login"><br>
-			<input type="password" placeholder="password" class="sign-in__password"><br>
-			<button class="btn__sign">Sign In</button>
-		</div>
+	<section class="mobile" id="mobile">
+		<a ui-sref = "home">Home</a>
+		<a href="#">Devices</a>
+		<a href="#">Delivery & Payment</a>
+		<a href="#">Guarantee</a>
+		<a ui-sref = "signup">About Us</a>
 	</section>
-	<section class="up" onclick="upScroll()">Up</section>
-	<section class="header" id="header">
+
+	<section class="up" id="up" onclick="upScroll()">Up</section>
+
+	<section class="header" id="header" ng-controller = "HeaderCtrl as vm">
 		<div class="header-inner">
+			
+			<form ng-submit ="vm.login()" id="sign-in">
+				<input type="email" ng-model = "vm.lEmail" ng-if = "!session" style="margin: 3px;">
+				<input type="password" ng-model = "vm.lPassword" ng-if = "!session" style="margin: 3px;">
+				<button type="submit" ng-if = "!session" style="margin: 3px;">Login</button>
+					<div ng-bind = "vm.name"></div>
+				<button ui-sref= "signup" ng-if = "!session" style="margin: 3px;">Sign up</button>
+				<div ng-repeat = "user in vm.rootName" style="margin: 10px;">
+					<div ng-bind = "user.email" style="margin: 10px; text-align: center;"></div>
+					<div style="margin: 10px; text-align: center;">Username: {{user.name}}</div>
+				</div>
+				<div ng-if = "session" ng-click ="vm.logout()" style="color: #fff; cursor:pointer; margin: 10px;">Logout</div>
+				<div ng-if = "session" ui-sref ="dashboard" style="color: #fff; cursor:pointer; margin: 10px;">Dashboard</div>
+			</form>
+
 			<div class="header-logo">
 				<img src="img/menu.svg" alt="menu" class="menu-icon" id="menu-icon" onclick="menu()">
-				<span>Izbasarov & Jansultan </span>
+				<span>Izbasarov & Jansultan</span>
 			</div>
 			<div class="header-link">
 				<a ui-sref = "home">Home</a>
@@ -56,7 +71,7 @@
 					<div class="header-auth-cart__sub" ui-sref ="basket">CART</div>
 					<div class="header-auth-cart__num" ui-sref ="basket">0</div>
 				</div>
-				<div class="header-auth-sign" id="header-auth-sign" onclick="signIn()">SIGN IN</div>
+				<div class="header-auth-sign" id="header-auth-sign"><div ng-if="!session">SIGN IN</div><div ng-if = "session" ng-click ="vm.logout()">Logout</div></div>
 			</div>
 		</div>
 	</section>
@@ -71,22 +86,18 @@
 				<div href="#">PROJECTS</div>
 			</div>
 			<div class="sup-search">
-				<span class="sup-search__support">Support</span>
+				<span class="sup-search__support" ui-sref = "support">Support</span>
 				<div class="sup-search__search">
 					<img src="img/Search-Icon.jpg" alt="search">
-					<input type="text" placeholder="I`m looking for...">
+					<input type="text" placeholder="Search...">
 				</div>
 			</div>
 		</div>
 	</section>
-		<!-- dropdown menu -->
 
-	<section class="newmenu" id="newmenu">
-		csds
-	</section>
 	<!-- Carusel -->
-	<div class="pad"></div>
-	<section class = "slider">
+	<div class="pad">s</div>
+	<section class = "slider" ng-if="'home' | isState">
 		<div class = "slider-inner" id = "slider" onclick = "nextSlide()">
 			<div class="slider-item" style = "background-image: url(img/slider1.jpg)">
 				<div class="slider-item__inner">
@@ -205,6 +216,10 @@
 <script type="text/javascript" src="/js/controllers/home.js"></script>
 <script type="text/javascript" src="/js/controllers/basket.js"></script>
 <script type="text/javascript" src="/js/controllers/admin.js"></script>
+<script type="text/javascript" src="/js/controllers/signup.js"></script>
+<script type="text/javascript" src="/js/controllers/header.js"></script>
+<script type="text/javascript" src="/js/controllers/support.js"></script>
+<script type="text/javascript" src="/js/controllers/dashboard.js"></script>
 
 <!-- default js -->
 <script src="js/slider.js"></script>

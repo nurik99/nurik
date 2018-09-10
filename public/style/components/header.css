@@ -27,11 +27,21 @@ body {
 	font-size: 28px;
 	font-family: 'Satisfy', cursive;
 }
+.header-link {
+	width: auto;
+	height: auto;
+}
 .header-link a{
 	margin:0 10px;
 	text-decoration: none;
 	color: rgba(0, 0, 0, .8);
 	font-weight: 600;
+	border-bottom: 1px solid #000;
+	border-bottom-width: 0;
+	transition-delay: .2s;
+}
+.header-link a:hover{
+	border-bottom-width: 2px;
 }
 .header-auth {
 	display: flex;
@@ -95,7 +105,7 @@ body {
 /*headerInfo*/
 .headerInfo {
 	position:fixed;
-	z-index: 50;
+	z-index: 45;
 	top: 73px;
 	left: 0;
 	width: 100%;
@@ -130,6 +140,7 @@ body {
 }
 .sup-search__support {
 	margin-right: 30px;
+	cursor: pointer;
 }
 .sup-search__search {
 	display: flex;

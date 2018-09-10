@@ -1,7 +1,7 @@
 var signIn = document.getElementById('sign-in');
 var headerAuthSign = document.getElementById('header-auth-sign');
 headerAuthSign.onmouseover = function () {
-	signIn.style.cssText = "display: block;";
+	signIn.style.cssText = "display: flex;";
 	headerAuthSign.style.cssText = "background-color: #F6A263;";
 }
 headerAuthSign.onmouseout = function () {
@@ -9,7 +9,7 @@ headerAuthSign.onmouseout = function () {
 	headerAuthSign.style.backgroundColor = "#fff";
 }
 signIn.onmouseover = function () {
-	signIn.style.display = "block";
+	signIn.style.display = "flex";
 	headerAuthSign.style.backgroundColor = "#F6A263";
 }
 signIn.onmouseout = function () {

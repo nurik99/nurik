@@ -30,4 +30,22 @@ function routeConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'AdminCtrl',
 			controllerAs: 'vm'
 		})
+		.state('signup', {
+			url: '/signup',
+			templateUrl: '/views/signup.html',
+			controller: 'SignUpCtrl',
+			controllerAs: 'vm'
+		})
+		.state('support', {
+			url: '/support',
+			templateUrl: '/views/support.html',
+			controller: 'SupportCtrl',
+			controllerAs: 'vm'
+		})
+		.state('dashboard', {
+			url: '/dashboard',
+			templateUrl: '/views/dashboard.html',
+			controller: 'DashboardCtrl',
+			controllerAs: 'vm'
+		})
 }

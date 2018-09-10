@@ -1,20 +1,4 @@
-	<!-- <section class = "slider">
-		<div class = "slider-inner" id = "slider">
-			<div class="slider-item" style = "background-image: url(../img/slide1.jpg)"></div>
-			<div class = "slider-item" style = "background-image: url(../img/slide2.jpg)"></div>
-			<div class = "slider-item" style = "background-image: url(../img/slide3.jpg)"></div>
-			<div class = "slider-item" style = "background-image: url(../img/slide4.jpg)"></div>			
-		</div>
-		<img src="img/caret-symbol.png" class = "arrow arrow--left" onclick = "backSlide()" id="prev">
-		<img src="img/caret-symbol.png" class = "arrow arrow--right" onclick = "nextSlide()" id="next">
-		<div class = "slider-ind">
-			<div class = "slider-ind__slide active" onclick="setSlidebyIndicator(0)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(1)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(2)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(3)"></div>
-		</div>
-	</section> -->
-	<!-- Filter -->
+<!-- Filter -->
 	<section class="filter">
 		<div class="sort">
 			<span>SORT BY</span>
@@ -48,8 +32,8 @@
 	</section>
 	<!-- Content -->
 	<section class="content animated fadeIn">
-		<div class="content-filter">
-			span
+		<div class="content-filter" id="content-filter">
+			<div ng-bind = 'User.name'></div>
 		</div>
 		<div class="content-inner">
 		<div class="content-inner__add">

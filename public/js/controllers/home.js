@@ -1,16 +1,32 @@
 app.controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = ['$http', '$scope', 'basket', '$interval'];
+HomeCtrl.$inject = ['$http', '$scope', 'basket', '$interval','$state', '$rootScope', '$cookies'];
 
-function HomeCtrl($http, $scope, basket, $interval) {
+function HomeCtrl($http, $scope, basket, $interval, $state, $rootScope, $cookies) {
 	var vm = this;
 
+	if($cookies.getObject('session')) {
+		$rootScope.session = $cookies.getObject('session');
+	}
+	vm.controllerState = $state.current.name;
+	
 	vm.basketInfo = basket.infoCart();
 
 	vm.delBasket = basket.delCart;
 
 	vm.info = basket.info;
-
+	
+	vm.logout = function(){
+		$http.post('/api/logout')
+			.success(function(responce) {
+				console.log($rootScope.session);
+				$rootScope.session = undefined;
+				$state.go('home');
+			})
+			.error(function(err) {
+				console.log(err);
+			})
+	}
 	// vm.basketIn = $interval(function(){basket.infoCart(); return console.log(basket.infoCart());}, 1000);
 
 	vm.products = [

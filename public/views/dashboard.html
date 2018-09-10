@@ -1,0 +1,12 @@
+<section class="dashboard">
+	<div class="dashboard-photo">
+		<img src="../img/Photo1.png" alt="Photo" style="width: 200px; height: 200px;">
+		<input ng-file-model = "vm.file" accept = "image/*" type="file" required="">
+	</div>
+	<form ng-submit ="vm.save()" class="dashboard-data" ng-repeat = "user in vm.rootName">
+		E-mail : <div style="color: #000; font-weight: 600;">{{user.email}}</div><br><br>
+		Username : <input type="text" ng-model = "vm.newName" placeholder="{{user.name}}">
+		Password : <input type="password" ng-model = "vm.newPassword" placeholder="new password">
+		<button type="submit">Save</button>
+	</form>
+</section>

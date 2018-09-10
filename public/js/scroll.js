@@ -12,20 +12,19 @@ function upScroll() {
 		}
 	}, 0)
 	
-	// if(position >= 45) {
 	// 	document.getElementById('header').style.position = "fixed";
-	// 	document.getElementById('header').style.zIndex = "50";
-	// 	document.getElementById('header').style.top = "0";
-	// 	document.getElementById('header').style.left = "0";
-	// 	document.getElementById('header').style.opacity = "0.9";
-
-	// 	document.getElementById('headerInfo').style.position = "fixed";
-	// 	document.getElementById('headerInfo').style.zIndex = "50";
-	// 	document.getElementById('headerInfo').style.top = "76px";
-	// 	document.getElementById('headerInfo').style.left = "0";
-	// }
-	// else {
-	// 	document.getElementById('header').style.position = "static";
-	// 	document.getElementById('headerInfo').style.position = "static";
+}
+window.onscroll = function () {
+	var position = window.pageYOffset;
+	var up = document.getElementById('up');
+	var conFilter = document.getElementById('content-filter');
+	if(position >= 250) {
+		up.style.display = "flex";
+	}
+	else {
+		up.style.display = "none";
+	}
+	// if(position >= 500) {
+	// 	conFilter.style.marginTop = (conFilter.style.marginTop + "50") + "px";
 	// }
 }
