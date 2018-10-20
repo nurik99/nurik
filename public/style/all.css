@@ -10,10 +10,19 @@
 @import url('components/checkbox.css');
 @import url('components/animate.min.css');
 @import url('components/pogi.css');
-@import url('components/scroll.css');
-@import url('components/preloader.css');
+@import url('components/index_content.css');
+@import url('components/home.css');
+@import url('components/insert_adv.css');
 @import url('components/footer.css');
+@import url('components/prelaoder.css');
 @import url('components/sign.css');
 @import url('components/support.css');
 @import url('components/dashboard.css');
+@import url('components/basket.css');
+@import url('components/comments.css');
+@import url('components/search.css');
+@import url('components/sliderSeile.css');
+
+@import url('../../angularjs-datetime-picker/angularjs-datetime-picker.css')
+/*@import url('../../angularjs-datetime-picker/angularjs-datetime-picker.js')*/
 

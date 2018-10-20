@@ -1,10 +1,21 @@
 const express = require('express')
+const multer  = require('multer')
+const fs = require('fs')
+const path = require('path')
+const upload = multer({ dest: 'uploads/' })
+const redis = require('redis')
 const router = express.Router()
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const nodemailer = require('nodemailer')
 
+const client = redis.createClient()
+
+client.on('error', (err) => console.log(`Error: ${err}`))
+
 const User = require('../models/User')
+const Advall = require('../models/AdvAll')
+
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -43,6 +54,23 @@ passport.deserializeUser((id, next) => {
 router.use(passport.initialize())
 router.use(passport.session())
 
+router.get('/index', (req,res,next)=>{
+	var d = req._passport.session.user;;
+	console.log(d);
+	Advall.find({"author": d}).exec((err, p)=>{
+		if(err)return res.send(err);
+		res.send(p);
+	})
+})
+
+router.delete('/del/:id', (req, res, next) => {
+    Advall.remove({ _id: req.params.id })
+        .exec((err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+        })
+})
+
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
 
 	res.cookie('session', JSON.stringify(req.user))
@@ -58,7 +86,8 @@ router.post('/signup', (req, res, next) => {
 	var user = new User({
 		name: req.body.name,
 		email: req.body.email,
-		password: req.body.password
+		password: req.body.password,
+		image: ""
 	})
 	user.save ((err, user) => {
 		if(err) return res.send(err)
@@ -77,22 +106,16 @@ router.post('/signup', (req, res, next) => {
     })
 })
 
-router.put('/api/save/', (req,res,next) => {
-	User.findById(req.params._id).exec((err, user) => {
-		if(err) return res.send(err)
-		else {
-			user.save((err, comment) => {
-				if(err) return res.send(err)
-				name == vm.newName;
-				email == vm.newEmail;
-				comment.save((err, post) => {
-					if(err) return res.send(err)
-					res.send(200)
-				})
-			})
-		}
-	});
-});
+
+router.post('/update', (req, res, next) => {
+	var user = new User({
+		name: req.body.name,
+		email: req.body.email,
+		password: req.body.password,
+		image: ""
+	})
+	var id = req.body._id;
+})
 
 router.get('/accept/:id', (req, res, next) => {
 	User.findById(req.params.id)
@@ -111,6 +134,8 @@ router.get('/user', (req, res, next) => {
 
 //подключаем все роуты
 // router.use('/post', require('./post'))
-// router.use('/comment', require('./comment'))
+router.use('/advall', require('./advall'))
+router.use('/comment', require('./comment'))
+router.use('/basket', require('./basket'))
 
 module.exports = router

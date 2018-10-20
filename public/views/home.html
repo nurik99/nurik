@@ -1,113 +1,91 @@
-<!-- Filter -->
-	<section class="filter">
-		<div class="sort">
-			<span>SORT BY</span>
-			<input type="text" class="radio">
-			<span class="sort__keyw">KEYWORDS</span>
-			<input type="text" placeholder="Tablet" class="sort__keyInput">
-		</div>
-		<div class="price">
-			<span>Price</span>
-			<input type="number">
-			<span> - </span>
-			<input type="number">
-			<span class="price__free">
-					<div class="center">
-	  					<label class="label">
-	    					<input  class="label__checkbox" type="checkbox" />
-	    					<span class="label__text">
-	      					<span class="label__check">
-	        					<i class="fa fa-check icon"></i>
-	      					</span>
-	    					</span>
-	  					</label>
-					</div>
-				Free Shopping
-			</span>
-		</div>
-		<div class="country">
-			<span>SHIP TO</span>
-			<input type="text">
-		</div>
-	</section>
+<!-- ui-sref-opts="{reload: true}" -->
+<div id="div_big_reclame" ng-show = "'home' | isState" style="width: 100% !important; height: 500px;">
+    <div class="swiper-container" style="width: 100%; height: 500px;">
+        <div class="swiper-wrapper" id="slider">
+            <div class="swiper-slide" style="background-image: url(img/slider1.jpg); background-color: #000;" ng-repeat="sliderData in vm.swiper">
+                <div class="slider-item__inner" >
+                    <div class="slider-item__start">
+                        <div class="slider-item__title" ng-bind="sliderData.title">
+                            iPhone 6 32Gb
+                            <br> Black
+                        </div>
+                        <div class="slider-item__subtitle" ng-bind="sliderData.desc">
+                            At first, for some time, I was not able to answer him one word; but as he had taken me in his arms I held fast by him, or I should have fallen to the ground.
+                        </div>
+                        <div class="slider-item__btn" ui-sref='index__content({id: sliderData.link})'>
+                        	Купить
+                        </div>
+                    </div>
+                    <img ng-src="{{sliderData.linkFile}}" alt="iphone6" class="slider-item__end">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next">
+            <img src="img/caret-symbol.png" class="arrow arrow--right">
+        </div>
+        <div class="swiper-button-prev">
+            <img src="img/caret-symbol.png" class="arrow arrow--left">
+        </div>
+    </div>
+</div>
+<section class="div_home" style="width: 100%; height: auto;">
 	<!-- Content -->
-	<section class="content animated fadeIn">
-		<div class="content-filter" id="content-filter">
-			<div ng-bind = 'User.name'></div>
-		</div>
+	<div class="content animated fadeIn">
 		<div class="content-inner">
-		<div class="content-inner__add">
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo1.png"></div>
+			<div class="content-cart" ng-repeat='advert in vm.advall' ui-sref='index__content({id: advert._id})'><!-- ui-sref ="index__content" -->
+				<div class="content-cart__img"><img class="content-cart__img--full" ng-src="{{advert.link}}" style="width: 100%; height: 100%"></div>
 				<div class="content-cart__title">
-					 Apple TV 32GB
+					<h6>
+						<span ng-bind='advert.adv_name'>Apple TV 32GB</span>
+					</h6>
 				</div>
 				<div class="content-cart__subtitle">
-					<p>$49.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
+					<p ng-bind='advert.new_price'>$49.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
 				</div>
+				<button class="btn_pod" ui-sref='index__content({id: advert._id})' onclick="onclickOnKey()">Купить</button><!-- ng-click='vm.deletePost(advert)' -->
 			</div>
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo2.png"></div>
-				<div class="content-cart__title">
-					 Pebble Time
-				</div>
-				<div class="content-cart__subtitle">
-					<p>$29.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
-				</div>
-			</div>
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo3.png" style= "width: 250px;"></div>
-				<div class="content-cart__title">
-					 Apple TV 32GB
-				</div>
-				<div class="content-cart__subtitle">
-					<p>$49.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
-				</div>
-			</div>
+
 		</div>
-		<div class="content-inner__add">
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo4.png"></div>
-				<div class="content-cart__title">
-					Withings Smart Body <br>
-					Analyzer ws-50
-				</div>
-				<div class="content-cart__subtitle">
-					<p>$39.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
-				</div>
-			</div>
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo5.png"></div>
-				<div class="content-cart__title">
-					Ollo Clip New
-				</div>
-				<div class="content-cart__subtitle">
-					<p>$19.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
-				</div>
-			</div>
-			<div class="content-cart">
-				<div class="content-cart__img"><img class="content-cart__img--full" src="img/Photo6.png"></div>
-				<div class="content-cart__title">
-					Fitbit Charge HR Heart Rate <br>
-					and Activity Tracker
-				</div>
-				<div class="content-cart__subtitle">
-					<p>$19.99</p>&nbsp;<img src="./img/basket.svg" alt="Basket" class="content-cart__basket">
-				</div>
-			</div>
-		</div>
-		</div>
-	</section>
-	<section class="pogi">
-		<div class="pogi__prev">
-			<
-		</div>
-		<div class="pogi__num">
-			<div>1</div>
-			<div>2</div>
-		</div>
-		<div class="pogi__next">
-			>
-		</div>
-	</section>
-	<!-- <script src="../js/slider.js"></script> -->
+	</div>
+</section>
+<div ng-show='vm.easy' style="width: 100%; height: 100px; text-align: center;">
+    <div class="val" style="position: relative;  padding-bottom: 50px;">
+        <div class="c c1">З</div>
+        <div class="c c2">А</div>
+        <div class="c c3">Г</div>
+        <div class="c c4">Р</div>
+        <div class="c c5">У</div>
+        <div class="c c6">З</div>
+        <div class="c c7">К</div>
+        <div class="c c8">А</div>
+        <div class="c c9">.</div>
+        <div class="c c10">.</div>
+    </div>
+</div>
+<div infinite-scroll="vm.myPagingFunction()" infinite-scroll-distance="1" infinite-scroll-disabled='vm.easy' infinite-scroll-immediate-check = "false"></div>
+
+<script>
+var swiper = new Swiper('#div_big_reclame .swiper-container', {
+    spaceBetween: 30,
+    speed: 500,
+    centeredSlides: true,
+    loop: true,
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    // },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    observer: true
+});
+
+
+
+</script>

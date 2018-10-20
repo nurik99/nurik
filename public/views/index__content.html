@@ -1,0 +1,119 @@
+<div class="index-advert-box" id="indexby_">
+    <div class="innner_indexby">
+        <div class="info-reclame">
+            <div class="body_slider_all_dis">
+                <div class="slider_s" id="id_image">
+                    <!-- Swiper -->
+                    <div class="swiper-container gallery-top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%; background-repeat: no-repeat;"></div>
+
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%;background-repeat: no-repeat;"></div>
+
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%;background-repeat: no-repeat;"></div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%;background-repeat: no-repeat;"></div>
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%;background-repeat: no-repeat;"></div>
+                            <div class="swiper-slide" style="background-image:url({{vm.advall.link}}); background-size: 100% 100%;background-repeat: no-repeat;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="div_info_all">
+                <!--=====================НАЗВАНИЕ РЕКЛАМЫ==========================-->
+                <div class="title_about">
+                    <div class="title_about_text">
+                        <span class="title-reclame" ng-bind="vm.advall.adv_name">Наименование рекламы</span>
+                    </div>
+                </div>
+                <div class="price-panel-rec">
+                    <span class="price-ot">от {{vm.advall.new_price}} тг</span>
+                </div>
+                <div class="discount-panel-rec">
+                    <div class="price1">
+                        <span class="title_">Стоимость:</span>
+                        <span class="text_" style="text-decoration: line-through;">{{vm.advall.old_price}} тг</span>
+                    </div>
+                    <div class="price1">
+                        <span class="title_">Скидка: </span>
+                        <span class="text_" style="color:#e62e04;font-size: 20px">{{vm.advall.discount}}%</span>
+                    </div>
+                    <div class="price1">
+                        <span class="title_">Цена со скидкой:</span>
+                        <span class="text_" style="color:rgb(246, 117, 62);font-size: 28px">{{vm.advall.new_price}} тг</span>
+                    </div>
+                </div>
+                <div class="price1" style="width: 100%;padding-top:10px;justify-content: flex-start;align-items: flex-start;">
+                    <span class="title_">Дата публикации: </span>
+                    <span class="text_">{{vm.advall.adv_date| date:'dd.MM.yyyy HH:mm:ss'}}</span>
+                </div>
+                <div class="div_btn">
+                    <button class="buy_tovar">Купить сейчас</button>
+                        <button class="btn_basket" ng-click="vm.addToCart()" ui-sref-opts="{reload: true}">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+        <div class="div_review_discount">
+            <div class="tab-menu">
+                <input class="input_radio" id="tab1" type="radio" name="tabs" checked>
+                <label class="label_class" for="tab1">Условия</label>
+                <input class="input_radio" id="tab2" type="radio" name="tabs">
+                <label class="label_class" for="tab2">Описания</label>
+                <input class="input_radio" id="tab3" type="radio" name="tabs">
+                <label class="label_class" for="tab3">Отзывы ({{vm.advall.comments.length}})</label>
+                <input class="input_radio" id="tab4" type="radio" name="tabs">
+                <label class="label_class" for="tab4">Адрес</label>
+                <section class="sction_class" id="content1" ng-bind="vm.advall.adv_conditions" style="white-space: pre-wrap;"></section>
+                <section class="sction_class" id="content2" ng-bind="vm.advall.adv_description" style="white-space: pre-wrap;"></section>
+                <section class="sction_class" id="content3">
+                    <form class="form" ng-submit="vm.addComment()" ng-if="session">
+                        <div class="form-row">
+                            <textarea id="commentValue" class="input" ng-model="vm.text" placeholder="Оставить комментарий..." required style="max-width: 100%;min-width: 100%"></textarea>
+                        </div>
+                        <button class="add_comment" type="submit" onclick="resetComment()">Оставить комментарий</button>
+                    </form>
+                    <!-- Comments List -->
+                    <div class="comments">
+                        <!-- Comment -->
+                        <div class="comment" ng-repeat='comment in vm.advall.comments'>
+                            <!-- Comment Avatar -->
+                            <div class="comment-avatar">
+                                <img ng-src="{{comment.link}}">
+                            </div>
+                            <!-- Comment Box -->
+                            <div class="comment-box">
+                                <div class="comment-text" ng-bind="comment.text">Hello!!!</div>
+                                <div class="comment-footer">
+                                    <div class="comment-info">
+                                        <span class="comment-author">
+						              <a ng-bind="comment.author_name">Zhansultan Tileubaev</a>
+						            </span>
+                                        <span class="comment-date" ng-bind="comment.data| date:'dd.MM.yyyy HH:mm:ss'">13.07.2018</span>
+                                    </div>
+                                    <div class="comment-actions" style="display: flex;flex-direction: row;">
+                                        <!-- <button class="add_comment" ng-if="session._id == comment.author" ng-click="vm.selectComment($index, comment)" style="margin-left: 0;margin-right: 16px; width: 120px">Изменить</button> -->
+                                        <button class="add_comment" ng-init = "session._id == comment.author" ng-click="vm.deleteComment($index, comment)" style="margin-left: 0;margin-right: 16px;width: 120px">Удалить</button>
+                                    </div>
+                                    <!-- <form class="comment-edit" ng-if="vm.currentComment == $index">
+                                        <textarea class="input" ng-model="vm.currentCommentText" placeholder="Оставить комментарий..." required style="margin-bottom: 10px;"style="max-width: 100%;min-width: 100%"></textarea>
+                                        <div style="width: auto;display: flex;flex-direction: row;">
+                                            <button class="comment-edit-btn add_comment" ng-click="vm.editSaveComment($index, comment)" style="margin-left: 0;margin-right: 16px;width: 120px">Сохранить</button>
+                                            <button class="comment-edit-btn add_comment" ng-click="vm.editCancelComment()" style="margin-left: 0;margin-right: 16px;width: 120px">Отменить</button>
+                                        </div>
+                                    </form> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sction_class" id="content4" ng-bind="vm.advall.adv_description"></section>
+            </div>
+        </div>
+    </div>
+</div>

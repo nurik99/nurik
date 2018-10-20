@@ -18,37 +18,36 @@ function BasketService() {
 		$interval(function(){basket.infoCart(); return console.log(basket.infoCart());}, 1000);
 	}
 
-	this.addToCart = function (product) {
-		if(localStorage.getItem('basket')) {
-			var basket = JSON.parse(localStorage.getItem('basket'));
-			var index = basket.findIndex(function(item) {
-				return item.name == product.name
-			})
+	// this.addToCart = function (advall) {
+	// 	if(localStorage.getItem('basket')) {
+	// 		var basket = JSON.parse(localStorage.getItem('basket'));
+	// 		var index = basket.findIndex(function(item) {
+	// 			console.log("item.name = "+ item.name);
+	// 			return item.name == advall.adv_name
+	// 		})
 
-			if(index >= 0) {
-				basket[index].count = (basket[index].count * 1) + 1;
-			}else {
-				basket.push ({
-					name: product.name,
-					price: product.price,
-					desc: product.desc,
-					count: 1
-				})
-			}
+	// 		if(index >= 0) {
+	// 			basket[index].count = (basket[index].count * 1) + 1;
+	// 		}else {
+	// 			basket.push ({
+	// 				name: advall.adv_name,
+	// 				price: advall.new_price,
+	// 				count: 1
+	// 			})
+	// 		}
 
-			localStorage.setItem('basket', JSON.stringify(basket));
-		}else {
-			var basket = [];
-			basket.push ({
-				name: product.name,
-				price: product.price,
-				desc: product.desc,
-				count: 1
-			})
-			localStorage.setItem('basket', JSON.stringify(basket));
-		}
-		BasketService.infoCart;
-	}
+	// 		localStorage.setItem('basket', JSON.stringify(basket));
+	// 	}else {
+	// 		var basket = [];
+	// 		basket.push ({
+	// 			name: advall.adv_name,
+	// 			price: advall.new_price,
+	// 			count: 1
+	// 		})
+	// 		localStorage.setItem('basket', JSON.stringify(basket));
+	// 	}
+	// 	BasketService.infoCart();
+	// }
 
 	this.getCart = function() {
 		if (localStorage.getItem('basket')) {
@@ -59,10 +58,10 @@ function BasketService() {
 		}
 	}
 
-	this.delCart = function(product) {
+	this.delCart = function(tBasket) {
 		var basket = JSON.parse(localStorage.getItem('basket'));
 		var index = basket.findIndex(function(item) {
-			return item.name == product.name
+			return item.name == tBasket.name
 		})
 		if(!localStorage.getItem('basket')) {
 			return []
@@ -78,16 +77,17 @@ function BasketService() {
 		}
 		localStorage.setItem('basket', JSON.stringify(basket));
 		if(BasketService.infoCart == 0) {
-			localStorage.clear('basket');
+			localStorage.remove('basket');
 		}
 		BasketService.infoCart;
+		BasketService.getCart;
 
 	}
 
-	this.info = function(product) {
+	this.info = function(tBasket) {
 		var basket = JSON.parse(localStorage.getItem('basket'));
 		var index = basket.find(function(item) {
-			return item.name == product.name
+			return item.name == tBasket.name 
 		});
 		if(index) {
 			return true;
@@ -95,5 +95,14 @@ function BasketService() {
 		else {
 			return false;
 		}
+		return allCount;
+	}
+	this.infoCarts = function(tBasket) {
+		var basket = JSON.parse(localStorage.getItem('basket'));
+		var allCount = basket.find(function(item) {
+			return item.name == tBasket.name 
+		});
+		var allCount = tBasket.count;
+		return allCount;
 	}
 }

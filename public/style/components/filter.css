@@ -17,8 +17,25 @@
 	color: rgba(0, 0, 0, .5);
 	outline: none;
 	width: 100px;
-	margin-left: 30px;
+	margin-left: 8px;
+	    border: 1px solid #E4E5E7;
+    border-radius: 15px;
+    background-color: #F0F2F7;
+    padding: 8px;
 }
+
+.ship_to_input{
+	border: none;
+	color: rgba(0, 0, 0, .5);
+	outline: none;
+	width: 60px;
+	margin-left: 8px;
+	    border: 1px solid #E4E5E7;
+    border-radius: 15px;
+    background-color: #F0F2F7;
+    padding: 8px;
+}
+
 .sort__keyw {
 	margin: 0 10px;
 	color: rgba(0, 0, 0, .5);
@@ -35,6 +52,12 @@
 	padding: 8px;
 }
 
+.price{
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .price input {
 	border: 1px solid #E4E5E7;
 	border-radius: 15px;
@@ -45,7 +68,9 @@
 	padding: 5px;
 }
 .price__free {
-	margin-left: 80px;
+	margin: 0 8px;
+    display: flex;
+    align-items: center;
 }
 .country span {
 	margin-right: 10px;

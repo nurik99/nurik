@@ -4,18 +4,39 @@ HomeCtrl.$inject = ['$http', '$scope', 'basket', '$interval','$state', '$rootSco
 
 function HomeCtrl($http, $scope, basket, $interval, $state, $rootScope, $cookies) {
 	var vm = this;
+	$http({
+		method: 'GET',
+		url: '/api/advall/swiper'
+	}).then(function(response) {
+		vm.swiper = response.data;
+		console.log(vm.swiper);
+	}, function(response) {
+		console.log(err);
+	});
+
+    // $scope.next = function() {
+    //     vm.swiper.slideNext();
+    // };
+    // $scope.onReadySwiper = function(swiper) {
+    //     console.log('onReadySwiper');
+    //     swiper.on('slideChangeStart', function() {
+    //         console.log('slideChangeStart');
+    //     });
+    // };
+	// $scope.onReadySwiper = function(swiper){
+ //        swiper.initObservers();
+	// };
 
 	if($cookies.getObject('session')) {
 		$rootScope.session = $cookies.getObject('session');
 	}
 	vm.controllerState = $state.current.name;
-	
 	vm.basketInfo = basket.infoCart();
 
 	vm.delBasket = basket.delCart;
 
 	vm.info = basket.info;
-	
+
 	vm.logout = function(){
 		$http.post('/api/logout')
 			.success(function(responce) {
@@ -27,61 +48,56 @@ function HomeCtrl($http, $scope, basket, $interval, $state, $rootScope, $cookies
 				console.log(err);
 			})
 	}
-	// vm.basketIn = $interval(function(){basket.infoCart(); return console.log(basket.infoCart());}, 1000);
+	$http.get('/api/advall/')
+        .success(function(response) {
+            vm.advalls = response;
+        })
+        .error(function(err) {
+            console.log(err);
+        })
+	vm.easy = true;
+	var a = 3;
 
-	vm.products = [
-		{
-			name: 'Пицца 1',
-			price: 2500,
-			desc: 'Пицца - куриная'
-		},
-		{
-			name: 'Пицца 2',
-			price: 3000,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 3',
-			price: 2700,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 4',
-			price: 2200,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 5',
-			price: 2000,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 6',
-			price: 2600,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 7',
-			price: 2900,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 8',
-			price: 3000,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 9',
-			price: 3500,
-			desc: 'Пицца - ?'
-		},
-		{
-			name: 'Пицца 10',
-			price: 3200,
-			desc: 'Пицца - ?'
-		},
+	$http({
+		method: 'GET',
+		url: '/api/advall?a=' + a + '/'
+	}).then(function(response) {
+		vm.advall = response.data;
+		console.log(vm.advall);
+		vm.easy = false;
+	}, function(response) {
+		console.log(err);
+	});
+	
 
-	];
-
-	vm.addToCart = basket.addToCart;
+	vm.myPagingFunction = function() {
+		if(a <= vm.advalls.length + 2) {
+			vm.easy = true;
+  			$http({
+				method: 'GET',
+				url: '/api/advall?a=' + a + '/'
+			}).then(function(response) {
+				vm.advall = response.data;
+				a += 3;
+				vm.easy = false;
+			}, function(response) {
+				console.log(err);
+			});
+		}
+		else {
+			return vm.easy = false;
+		}
+	}
+	vm.deletePost = function(post) {
+		$http.delete('/api/advall/'+post._id)
+		.success(function(response){
+			var index = vm.advall.findIndex(function(item){
+				return item._id === post._id;
+			})
+			vm.advall.splice(index, 1);
+		})
+		.error(function(err){
+			console.log(err);
+		})
+	}
 }

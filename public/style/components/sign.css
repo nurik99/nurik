@@ -1,32 +1,68 @@
 #sign-in {
-	display: none;
-	width: 15%;
-	height: 25%;
-	position: fixed;
-	z-index: 91;
-	right: 0%;
-	top:9%;
-	background-color: #F6A263;
-	/*display: flex;*/
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	    display: none;
+    width: 270px;
+    position: fixed;
+    z-index: 91;
+    right: 0%;
+    top: 8%;
+    /* background-color: #fff; */
+    /* border: 1px solid rgba(0,0,0,.2); */
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    outline: 0;
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    padding: 10px;
 }
 #sign-in button{
-	width: 80px;
-	background-color: #FAFFBD;
-	border-radius: 3px;
-	border:none;
-	outline: none;
-	cursor: pointer;
-	padding: 5px;
+	    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    border: 0;	
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    background-color: #005ce6;
+    border-color: #10707f;
+    border-radius: 3px;
+    width: 95%;
+    height: 40px;
+    margin: 8px 0;
+}
+
+#sign-in button:hover{	
+    background-color: #fff;
+    border-color: #10707f;
+    color: #0066ff;
+    box-shadow: 0 0 0 2px rgba(0,92,230,.5);
 }
 #sign-in input{
+	padding: 6px;
+	margin: 3px;
+	cursor: text;
+	color: #000;
+	background-color: rgba(0, 0, 0, 0.09);
 	border-radius: 3px;
-	border:none;
-	outline: none;
-	cursor: pointer;
-	padding: 5px;
+	border: 1px solid #ff7642;
+    color: #333;
+    font-size: 16px;
+    height: 30px;
+    margin-bottom: 5px;
+    width: 90%;
+    cursor: text;
+}
+#sign-in input:hover{
+    background-color: rgba(0,0,0,.16);
 }
 #signup {
 	width: 100%;
@@ -55,12 +91,12 @@
 	border:none;
 }
 .up {
-	width: 30px;
-	height: 30px;
+	width: 53px;
+	height: 50px;
 	position: fixed;
 	top:90%;
 	right:0.5%;
-	background-color: #F6A263;
+	background-color: #989898e0;
 	color: #fff;
 	cursor: pointer;
 	padding: 10px;
@@ -68,4 +104,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 1000000;
+    opacity: 0.6;
+}
+.up:hover{
+    opacity: 1;
+    transition: 0.5s
+}
+
+.div_title{
+	    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal_title{
+	    margin: 0;
+    line-height: 1.42857143;
+    font-size: 30px
 }

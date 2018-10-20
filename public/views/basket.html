@@ -1,6 +1,17 @@
-<div class="basket" ng-repeat = "basket in vm.basket">
-	<div class="basket__div">Name :&nbsp;<div ng-bind = "basket.name"></div></div>
-	<div class="basket__div">Price :&nbsp;<div>{{basket.price}} {{vm.v}}</div></div>
-	<div class="basket__div">Description :&nbsp;<div ng-bind = "basket.desc"></div></div>
-	<div class="basket__div">Count :&nbsp;<div ng-bind = "basket.count"></div></div>
-</div>
+<div class="pad">s</div>
+<table id="baskets">
+	<th style="width: 120px"></th>
+	<th>Название</th>
+	<th style="width: 130px">Цена</th>
+	<th style="width: 50px;">Количества</th>
+	<th style="width: 50px;"></th>
+	<tr ng-repeat = "tBasket in vm.basket">
+		<td ui-sref='index__content({id: tBasket.post})'>
+			<img src="{{tBasket.link}}" width="120" height="70">
+		</td>
+		<td ng-bind = "tBasket.adv_name" ui-sref='index__content({id: tBasket.post})'></td>
+		<td ng-bind = "tBasket.new_price" ui-sref='index__content({id: tBasket.post})'></td>
+		<td>1</td>
+		<td ng-click="vm.deleteBasket(tBasket)"  class="delete_basket">Удалить</td>
+	</tr>
+</table>

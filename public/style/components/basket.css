@@ -1,0 +1,50 @@
+#baskets {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 97.5%;
+    box-sizing: border-box;
+    margin: 16px 16px;
+}
+
+
+#baskets td,
+#baskets th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#baskets th {
+    font-size: 22px;
+}
+
+#baskets td {
+    color: rgb(21, 21, 21);
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+#baskets tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#baskets tr:hover {
+    background-color: #ddd;
+}
+
+#baskets th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ff7642;
+    color: white;
+}
+
+.delete_basket {
+    color: #005ce6!important;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete_basket:hover {
+    text-decoration: underline;
+}

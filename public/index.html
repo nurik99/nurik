@@ -1,232 +1,253 @@
 <!DOCTYPE html>
 <html ng-app="decode">
+
 <head>
-	<base href="/">
-	<meta charset="utf-8">
+    <base href="/">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style/all.css">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <title>Portland</title>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <title>N&J</title>
+    <link rel="stylesheet" type="text/css" href="style/swiper.min.css">
+    <style>
+    .swiper-slide {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background-image: none;
+    }
+    </style>
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
 </head>
-<body style="background-color: #E4E5E7;">
-	<section class="preloader" id="preloader">
-		<div class="loader">
-			<div class="cssload-thecube">
-				<div class="cssload-cube cssload-c1"></div>
-				<div class="cssload-cube cssload-c2"></div>
-				<div class="cssload-cube cssload-c4"></div>
-				<div class="cssload-cube cssload-c3"></div>
-			</div>
-		</div>
-		
-		<!-- <div class="loader"></div> -->
-	</section>
-	<section class="backdrop" id="backdrop" onclick="backNone()"></section>
-	<section class="mobile" id="mobile">
-		<a ui-sref = "home">Home</a>
-		<a href="#">Devices</a>
-		<a href="#">Delivery & Payment</a>
-		<a href="#">Guarantee</a>
-		<a ui-sref = "signup">About Us</a>
-	</section>
 
-	<section class="up" id="up" onclick="upScroll()">Up</section>
-
-	<section class="header" id="header" ng-controller = "HeaderCtrl as vm">
-		<div class="header-inner">
-			
-			<form ng-submit ="vm.login()" id="sign-in">
-				<input type="email" ng-model = "vm.lEmail" ng-if = "!session" style="margin: 3px;">
-				<input type="password" ng-model = "vm.lPassword" ng-if = "!session" style="margin: 3px;">
-				<button type="submit" ng-if = "!session" style="margin: 3px;">Login</button>
-					<div ng-bind = "vm.name"></div>
-				<button ui-sref= "signup" ng-if = "!session" style="margin: 3px;">Sign up</button>
-				<div ng-repeat = "user in vm.rootName" style="margin: 10px;">
-					<div ng-bind = "user.email" style="margin: 10px; text-align: center;"></div>
-					<div style="margin: 10px; text-align: center;">Username: {{user.name}}</div>
-				</div>
-				<div ng-if = "session" ng-click ="vm.logout()" style="color: #fff; cursor:pointer; margin: 10px;">Logout</div>
-				<div ng-if = "session" ui-sref ="dashboard" style="color: #fff; cursor:pointer; margin: 10px;">Dashboard</div>
-			</form>
-
-			<div class="header-logo">
-				<img src="img/menu.svg" alt="menu" class="menu-icon" id="menu-icon" onclick="menu()">
-				<span>Izbasarov & Jansultan</span>
-			</div>
-			<div class="header-link">
-				<a ui-sref = "home">Home</a>
-				<a href="#">Devices</a>
-				<a href="#">Delivery & Payment</a>
-				<a href="#">Guarantee</a>
-				<a href="#">About Us</a>
-			</div>
-			<div class="header-auth">
-				<div class="header-auth-cart">
-					<div class="header-auth-cart__icon">
-						<img src="img/Shopping-Cart-Icon.jpg" ui-sref ="basket">
-					</div>
-					<div class="header-auth-cart__sub" ui-sref ="basket">CART</div>
-					<div class="header-auth-cart__num" ui-sref ="basket">0</div>
-				</div>
-				<div class="header-auth-sign" id="header-auth-sign"><div ng-if="!session">SIGN IN</div><div ng-if = "session" ng-click ="vm.logout()">Logout</div></div>
-			</div>
-		</div>
-	</section>
-	<!-- next section -->
-	<section class="headerInfo" id="headerInfo">
-		<div class="headerInfo-inner">
-			<div class="info-links">
-				<div href="#" class="link">TOP SALES</div>
-				<div href="#" class="link">BRAND FOCUS</div>
-				<div href="#" class="link">HI-TECH</div>
-				<div href="#">BEST SELLERS</div>
-				<div href="#">PROJECTS</div>
-			</div>
-			<div class="sup-search">
-				<span class="sup-search__support" ui-sref = "support">Support</span>
-				<div class="sup-search__search">
-					<img src="img/Search-Icon.jpg" alt="search">
-					<input type="text" placeholder="Search...">
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Carusel -->
-	<div class="pad">s</div>
-	<section class = "slider" ng-if="'home' | isState">
-		<div class = "slider-inner" id = "slider" onclick = "nextSlide()">
-			<div class="slider-item" style = "background-image: url(img/slider1.jpg)">
-				<div class="slider-item__inner">
-					<div class="slider-item__start">
-						<div class="slider-item__title">
-							iPhone 6 32Gb <br> Black
-						</div>
-						<div class="slider-item__subtitle">
-							At first, for some time, I was not able to answer him one word; but as he had taken me in his arms I held fast by him, or I should have fallen to the ground.
-						</div>
-						<div class="slider-item__btn">
-							Bay now
-						</div>
-					</div>
-					<img src="img/iphone6.png" alt="iphone6" class="slider-item__end">
-				</div>
-			</div>
-			<div class = "slider-item" style = "background-image: url(img/slider1.jpg)">
-				<div class="slider-item__inner">
-					<div class="slider-item__start">
-						<div class="slider-item__title">
-							iPhone 6 32Gb <br> Black
-						</div>
-						<div class="slider-item__subtitle">
-							At first, for some time, I was not able to answer him one word; but as he had taken me in his arms I held fast by him, or I should have fallen to the ground.
-						</div>
-						<div class="slider-item__btn">
-							Bay now
-						</div>
-					</div>
-					<img src="#" alt="iphone6" class="slider-item__end">
-				</div>
-			</div>
-			<div class = "slider-item" style = "background-image: url(img/slider1.jpg)">
-				<div class="slider-item__inner">
-					<div class="slider-item__start">
-						<div class="slider-item__title">
-							iPhone 6 32Gb <br> Black
-						</div>
-						<div class="slider-item__subtitle">
-							At first, for some time, I was not able to answer him one word; but as he had taken me in his arms I held fast by him, or I should have fallen to the ground.
-						</div>
-						<div class="slider-item__btn">
-							Bay now
-						</div>
-					</div>
-					<img src="#" alt="iphone6" class="slider-item__end">
-				</div>
-			</div>
-			<div class = "slider-item" style = "background-image: url(img/slider1.jpg)">
-				<div class="slider-item__inner">
-					<div class="slider-item__start">
-						<div class="slider-item__title">
-							iPhone 6 32Gb <br> Black
-						</div>
-						<div class="slider-item__subtitle">
-							At first, for some time, I was not able to answer him one word; but as he had taken me in his arms I held fast by him, or I should have fallen to the ground.
-						</div>
-						<div class="slider-item__btn">
-							Bay now
-						</div>
-					</div>
-					<img src="#" alt="iphone6" class="slider-item__end">
-				</div>
-			</div>			
-		</div>
-		<img src="img/caret-symbol.png" class = "arrow arrow--left" onclick = "backSlide()" id="prev">
-		<img src="img/caret-symbol.png" class = "arrow arrow--right" onclick = "nextSlide()" id="next">
-		<div class = "slider-ind">
-			<div class = "slider-ind__slide active" onclick="setSlidebyIndicator(0)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(1)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(2)"></div>
-			<div class = "slider-ind__slide" onclick="setSlidebyIndicator(3)"></div>
-		</div>
-	</section>
-
-	<ui-view>
-		
-	</ui-view>
-
-	<section class="footer">
-		<div class="footer__links">
-			<span>Izbasarov & Jansultan </span>
-			<div class="footer__link">
-				<a href="#">Home</a>
-				<a href="#">Devices</a>
-				<a href="#">Delivery & Payment</a>
-				<a href="#">Guarantee</a>
-				<a href="#">About Us</a>
-			</div>
-			<div class="footer__social">
-				<img src="img/twitter.svg" alt="twitter">
-				<img src="img/facebook.svg" alt="facebook">
-				<img src="img/google-plus.svg" alt="google-plus">
-			</div>
-		</div>
-		<div class="footer__border"></div>
-		<div class="footer__item">
-			<div class="footer__subtitle">
-				She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday.
-			</div>
-			<div class="footer__privacy">
-				<span>Privacy Policy</span>
-				<div>Terms and Conditions</div>
-			</div>
-		</div>
-		<div ui-sref="admin" style="color: #222328; border: 0.1px solid #220; cursor: default;">Admin</div>
-	</section>
+<body style="background-color: #fff;">
+    <section class="preloader" id="preloader">
+        <div class="loader">
+            <div class="cssload-thecube">
+                <div class="cssload-cube cssload-c1"></div>
+                <div class="cssload-cube cssload-c2"></div>
+                <div class="cssload-cube cssload-c4"></div>
+                <div class="cssload-cube cssload-c3"></div>
+            </div>
+            <div class="val">
+                <div class="c c1">З</div>
+                <div class="c c2">А</div>
+                <div class="c c3">Г</div>
+                <div class="c c4">Р</div>
+                <div class="c c5">У</div>
+                <div class="c c6">З</div>
+                <div class="c c7">К</div>
+                <div class="c c8">А</div>
+                <div class="c c9">.</div>
+                <div class="c c10">.</div>
+            </div>
+        </div>
+    </section>
+    <section class="backdrop" id="backdrop" onclick="backNone()"></section>
+    <section class="mobile" id="mobile">
+        <a ui-sref="home" onclick="backNone()"> <img src="./img/home.svg"> Главная</a>
+        <a ui-sref="insert_adv" onclick="backNone()"> <img src="./img/product.svg"> Добавить товар</a>
+        <a ui-sref="support" onclick="backNone()"> <img src="./img/help.svg"> Техподдержка</a>
+        <a ui-sref="sliderSeile" onclick="backNone()"> <img src="./img/about-us.svg"> О нас</a>
+    </section>
+    <section class="up" id="up" onclick="upScroll()">Вверх</section>
+    <section class="header" id="header" ng-controller="HeaderCtrl as vm" style="width: 100% !important;">
+        <div class="header-inner">
+            <form ng-submit="vm.login()" id="sign-in" class="container animated fadeIn">
+                <div class="div_title">
+                    <h4 class="modal_title">Вход на сайт</h4>
+                </div>
+                <input type="email" ng-model="vm.lEmail" ng-if="!session">
+                <input type="password" ng-model="vm.lPassword" ng-if="!session">
+                <button type="submit" ng-if="!session">Войти</button>
+                <div ng-bind="vm.name"></div>
+                <button ui-sref="signup" ng-if="!session">Регистрация</button>
+                <div ng-repeat="user in vm.rootName" style="margin: 10px;">
+                    <div ng-bind="user.email" style="margin: 10px; text-align: center;"></div>
+                    <div style="margin: 10px; text-align: center;">Логин: {{user.name}}</div>
+                </div>
+                <div ng-if="session" ng-click="vm.logout()" style="color: #fff; cursor:pointer; margin: 10px;background-color: #ff7642;padding: 8px;width: 154px;text-align: center;">Выйти</div>
+                <div ng-if="session" ui-sref="dashboard" style="color: #ff7642; cursor:pointer; margin: 10px;">Лич. кабинет</div>
+            </form>
+            <div class="header-logo">
+                <img src="img/menu.svg" alt="menu" class="menu-icon" id="menu-icon" onclick="menu()">
+                <img src="img/d24fb83655f63d7e8325730ba524216f.jpg" width="30" height="30" ui-sref="home" style="cursor: pointer;">
+            </div>
+            <nav class="header-link" ui-sref-active="menu-active">
+                <a href ui-sref="home">Главная</a>
+                <a href ui-sref="insert_adv">Добавить товар</a>
+                <a href ui-sref="support">Техподдержка</a>
+                <a href ui-sref="signup">О нас</a>
+                <a href ui-sref="sliderSeile">Slider__</a>
+            </nav>
+            <div class="sup-search">
+                <div class="sup-search__search">
+                    <img src="img/Search-Icon.jpg" alt="search">
+                    <input type="text" placeholder="Поиск..." ng-keyup = "vm.search()" ng-model="vm.search_text">
+                    <div ng-repeat = "result in vm.search_result" class="search-filter">
+                        <ol style="list-style-type: decimal;">
+                           <li ng-bind = "(result.adv_name)" ui-sref='index__content({id: result._id})'></li> 
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="header-auth">
+                <div class="header-auth-cart">
+                    <div class="header-auth-cart__icon">
+                        <img src="img/Shopping-Cart-Icon.jpg" ui-sref="basket">
+                    </div>
+                    <div class="header-auth-cart__sub" ui-sref="basket">CARD</div>
+                    <div class="header-auth-cart__num" ui-sref="basket" ng-model="vm.basket.length">{{vm.basket.length}}</div>
+                </div>
+                <div class="header-auth-sign" id="header-auth-sign">
+                    <div ng-if="!session">ВОЙТИ</div>
+                    <div ng-if="session">ВЫЙТИ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Carusel -->
+    <div class="pad">s</div>
+    <ui-view>
+    </ui-view>
+    <section class="footer">
+        <div class="footer__links">
+            <span>Izbasarov & Jansultan </span>
+            <div class="footer__link">
+                <a ui-sref="home">Главная</a>
+                <a ui-sref="insert_adv">Добавить товар</a>
+                <a href="#">Гарантия</a>
+                <a ui-sref="signup">О нас</a>
+            </div>
+            <div class="footer__social">
+                <img src="img/twitter.svg" alt="twitter">
+                <img src="img/facebook.svg" alt="facebook">
+                <img src="img/google-plus.svg" alt="google-plus">
+            </div>
+        </div>
+        <div class="footer__border"></div>
+        <div class="footer__item">
+            <div class="footer__subtitle">
+                She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday.
+            </div>
+            <div class="footer__privacy">
+                <span>Privacy Policy</span>
+                <div>Terms and Conditions</div>
+            </div>
+        </div>
+        <div ui-sref="admin" style="color: #222328; border: 0.1px solid #220; cursor: default;">Admin</div>
+    </section>
 </body>
+<!-- New -->
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
 <script type="text/javascript" src="/js/vendor/ng.min.js"></script>
 <script type="text/javascript" src="/js/vendor/ng-route.min.js"></script>
 <script type="text/javascript" src="/js/vendor/ng-cookies.min.js"></script>
+<script type='text/javascript' src='/js/vendor/ng-infinite-scroll.min.js'></script>
 <script type="text/javascript" src="/app.js"></script>
 
 <script type="text/javascript" src="/js/controllers/local.js"></script>
 <script type="text/javascript" src="/js/controllers/home.js"></script>
 <script type="text/javascript" src="/js/controllers/basket.js"></script>
 <script type="text/javascript" src="/js/controllers/admin.js"></script>
+<script type="text/javascript" src="/js/controllers/sliderSeile.js"></script>
 <script type="text/javascript" src="/js/controllers/signup.js"></script>
 <script type="text/javascript" src="/js/controllers/header.js"></script>
 <script type="text/javascript" src="/js/controllers/support.js"></script>
 <script type="text/javascript" src="/js/controllers/dashboard.js"></script>
-
+<!-- New -->
+<script type="text/javascript" src="/js/controllers/index_content.js"></script>
+<script type="text/javascript" src="/js/controllers/insert_adv.js"></script>
 <!-- default js -->
-<script src="js/slider.js"></script>
+<!-- <script src="js/slider.js"></script> -->
 <script src="js/menu.js"></script>
 <script src="js/scroll.js"></script>
 <script src="js/dropdown.js"></script>
 <script src="js/preloader.js"></script>
 <script src="js/sign.js"></script>
+<script src="js/reset.js"></script>
+
+<!-- <script type="text/javascript">
+var links = document.querySelectorAll('.header-link li');
+
+for (var i = 0; i < links.length; i++) {
+    if (window.CP.shouldStopExecution(0)) break;
+    links[i].addEventListener('click', function(e) {
+        for (var j = 0; j < links.length; j++) {
+            if (window.CP.shouldStopExecution(1)) break;
+            links[j].classList.remove('active');
+        }
+        window.CP.exitedLoop(1);
+        e.target.classList.add('active');
+    });
+}
+window.CP.exitedLoop(0);
+
+var headerHeight = $("nav").height();
+
+$('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]').
+not('[href="#0"]').
+click(function(event) {
+    // On-page links
+    if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+
+        location.hostname == this.hostname) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        var scrollToPosition = $(target).offset().top - headerHeight;
+        // Does a scroll target exist?
+        if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+                    scrollTop: scrollToPosition
+                },
+                750,
+                function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    };
+                });
+        }
+    }
+});
+</script> -->
 
 </html>

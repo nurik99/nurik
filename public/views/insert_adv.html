@@ -1,0 +1,75 @@
+<div class="index-advert-box" id="indexby_">
+    <div class="innner_indexby">
+    	<form ng-submit="vm.insert_adv()" method="post" enctype="multipart/form-data" ng-if = "session">
+    		<div class="adv_div" ng-controller="InsertAdvCtrl">
+	    		<span class="adv_title">Город</span>
+	    		<input type="text" class="adv_input" ng-model="vm.city" required>
+	    		<!-- <select name="citySelect" class="adv_select" id="citySelect" ng-model="vm.city" required>
+			      <option ng-repeat="city in data.availableOptions" value="{{city.id}}">{{city.name}}</option>
+			    </select> -->
+		    	<!-- <tt>model = {{data.model}}</tt><br/> -->
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Название</span>
+	    		<input type="text" class="adv_input" placeholder="Кожаный чехол для телефона" ng-model="vm.adv_name" required>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Категория</span>
+	    		<input type="text" class="adv_input" ng-model="vm.categorya" required>
+	    		<!-- <select name="categorySelect" class="adv_select" id="categorySelect" ng-model="data.model">
+			      <option ng-repeat="category in data.availableOptionsCategory" value="{{category.id}}">{{category.name}}</option>
+			    </select> -->
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Срок действия</span>
+	    		<input class="adv_input" type="date" ng-model="vm.adv_date" required/>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Условия </span>
+	    		<textarea class="adv_textarea" type="text" ng-model="vm.adv_conditions" required></textarea>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Описание </span>
+	    		<textarea class="adv_textarea" type="text" ng-model="vm.adv_description" required></textarea>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<!-- <span class="adv_title"> </span>
+	    		<label for="file-upload" class="adv_title" style="cursor: pointer;margin-bottom: 16px">
+			    	<i class="fa fa-cloud-upload"></i>Изображение
+				</label>
+	    		<input id="file-upload" name="myFile" ng-file-model="vm.file" accept="image/*" type="file" required multiple style="display: none;" />
+	    		<p ng-repeat="file in vm.file" class="p_text">
+			      {{file.name}}
+			    </p> -->
+			    <input ng-file-model="vm.file" accept="image/*" type="file" required>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="addv_title">Старая цена</span>
+	    		<input id="val" class="adv_input" type="text" name="oldPrice" ng-model="vm.old_price" required/>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Акция, %</span>
+	    		<input id="result" class="adv_input" type="text" name="discount" ng-model="vm.discount" required/>
+	    	</div>
+
+	    	<div class="adv_div">
+	    		<span class="adv_title">Новая цена, %</span>
+	    		<input id="econom" class="adv_input" type="text" name="rank" style="border: none;" readonly="readonly" ng-model="vm.new_price"/>
+	    	</div>
+
+	    	<button class="buy_tovar" type="submit" ng-if = "session">
+	    		Сохранить
+	    	</button>
+    	</form>
+    	<div ng-if = "!session" class="buy_tovar" ui-sref = "signup" style="cursor: pointer;display: flex;justify-content: center;align-items: center;margin: 6px">Регистрация</div>
+    	<div ng-if = "!session" class="buy_tovar" ui-sref="home" style="cursor: pointer;display: flex;justify-content: center;align-items: center;margin: 6px">Главная</div>
+    </div>
+</div>

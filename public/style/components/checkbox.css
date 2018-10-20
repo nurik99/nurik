@@ -47,10 +47,8 @@ html {
 }
 
 .center {
-    position: absolute;
-    top: 110.5vh;
-    left: 128vh;
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin-left: 8px;
 }
 
 @keyframes icon {

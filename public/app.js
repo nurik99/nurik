@@ -1,6 +1,7 @@
 var app = angular.module('decode', [
 	'ui.router',
-	'ngCookies'
+	'ngCookies',
+	'infinite-scroll'
 ])
 
 app.config(routeConfig);
@@ -30,6 +31,12 @@ function routeConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 			controller: 'AdminCtrl',
 			controllerAs: 'vm'
 		})
+		.state('sliderSeile', {
+			url: '/sliderSeile',
+			templateUrl: '/views/sliderSeile.html',
+			controller: 'sliderSeileCtrl',
+			controllerAs: 'vm'
+		})
 		.state('signup', {
 			url: '/signup',
 			templateUrl: '/views/signup.html',
@@ -46,6 +53,20 @@ function routeConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 			url: '/dashboard',
 			templateUrl: '/views/dashboard.html',
 			controller: 'DashboardCtrl',
+			controllerAs: 'vm'
+		})
+
+		.state('index__content', {
+			url: '/index__content/:id',
+			templateUrl: '/views/index__content.html',
+			controller: 'IndexContentCtrl',
+			controllerAs: 'vm'
+		})
+
+		.state('insert_adv', {
+			url: '/insert_adv',
+			templateUrl: '/views/insert_adv.html',
+			controller: 'InsertAdvCtrl',
 			controllerAs: 'vm'
 		})
 }

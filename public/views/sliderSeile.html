@@ -1,0 +1,29 @@
+<section class="sliderSeile">
+	<div class="sliderSeile__title flex">Заполните все поля чтобы опубликовать акцию для слайдера(которая на Главном странице)</div> 
+	<form ng-submit="vm.sliderPush()" method="post" enctype="multipart/form-data" ng-if = "session" class="sliderSeile__form flex">
+		<input type="text" class="sliderSeile__input adv_input" ng-model = "vm.title" placeholder="Название товара" required="">
+		<input type="text" class="sliderSeile__input adv_input" ng-model = "vm.desc" placeholder="Описание товара" required="">
+		<input type="text" class="sliderSeile__input adv_input" ng-model = "vm.link" placeholder="Ссылка товара" required="">
+		<label class="sliderSeile__upload">
+		    <input ng-file-model="vm.file" accept = "image/*" type="file" required="" name="ava" style= "display: none;">
+		    <div class="sliderSeile__div cursor">Загрузить фото</div> 
+		</label>
+		<button class="sliderSeile__button buy_tovar cursor" type="submit" ng-if = "session" name="send">
+	    		Сохранить
+	    </button>
+	</form>
+	<table id="baskets">
+		<th style="width: 120px"></th>
+		<th>Название</th>
+		<th style="width: 130px">Описание</th>
+		<th style="width: 50px;"></th>
+		<tr ng-repeat = "data in vm.sliderGet">
+			<td>
+				<img src="{{data.linkFile}}" width="120" height="70">
+			</td>
+			<td ng-bind = "data.title" style="cursor: pointer;"></td>
+			<td ng-bind = "data.desc"></td>
+			<td ng-click="vm.deleteSlide(data)"  class="delete_basket">Удалить</td>
+		</tr>
+	</table>
+</section>

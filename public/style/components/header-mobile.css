@@ -1,4 +1,5 @@
 .header-inner {
+	width: 100%;
 	margin: 0 3%;
 }
 .header-link a{
@@ -14,6 +15,11 @@
 .headerInfo-inner {
 	margin: 0 1%;
 }
+
+.header-auth-cart {
+	margin-right: 100px;
+}
+
 .sup-search__support {
 	margin-right: 0px;
 }
@@ -21,15 +27,28 @@
 	width: 40%;
 	height: 100%;
 	display: flex;
+	align-items: center;
+	flex-direction: column;
 	position: fixed;
-	background-color: #000;
+	background-color: #fff;
 	color: #fff;
 	left: -40%;
 	transition: .4s ease-out;
 	z-index: 100;
 }
+.mobile a{
+	width: 80%;
+	margin-top: 20px;
+	color: #000;
+	display: flex;
+	align-items: center;
+}
+.mobile a img {
+	width: 25px;
+	margin-right: 10px;
+}
 .menu-icon {
-	display: inline-block;
+	display: inline-flex;
 }
 .backdrop {
 	display: none;

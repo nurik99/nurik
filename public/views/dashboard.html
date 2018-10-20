@@ -1,12 +1,45 @@
 <section class="dashboard">
 	<div class="dashboard-photo">
-		<img src="../img/Photo1.png" alt="Photo" style="width: 200px; height: 200px;">
-		<input ng-file-model = "vm.file" accept = "image/*" type="file" required="">
+		<form ng-submit="vm.editAva()" method="post" enctype="multipart/form-data" ng-if = "session">
+		<img ng-src="{{vm.avatar[vm.avatar.length - 1].link}}" alt="Photo" style="width: 200px; height: auto;">
+		<label class="custom-file-upload">
+		    <input ng-file-model="vm.file" accept = "image/*" type="file" required="" name="ava" style= "display: none;">
+		    <div for = "ava" style="margin: 20px 0; text-align: center; cursor: pointer;">Загрузить фото</div> 
+		</label>
+
+		<button class="buy_tovar" type="submit" ng-if = "session" name="send">
+	    		Сохранить
+	    </button>
+		</form>
 	</div>
-	<form ng-submit ="vm.save()" class="dashboard-data" ng-repeat = "user in vm.rootName">
-		E-mail : <div style="color: #000; font-weight: 600;">{{user.email}}</div><br><br>
-		Username : <input type="text" ng-model = "vm.newName" placeholder="{{user.name}}">
-		Password : <input type="password" ng-model = "vm.newPassword" placeholder="new password">
-		<button type="submit">Save</button>
+	<form ng-submit="vm.saveUser()" method="put" enctype="multipart/form-data" ng-if = "session" class="dashboard-data">
+		Логин : <input type="text" ng-model = "vm.inputName" placeholder="new Username" id="commentValue1">
+		Пароль : <input type="password" ng-model = "vm.inputPassword" placeholder="new password" id="commentValue2">
+		<div class="dashboard-data__buttons">
+			<button type="submit"" class="buy_tovar">
+	    		Сохранить
+	    	</button>
+	    	<button type="reset" class="buy_tovar">
+	    		Очистить
+	    	</button>
+		</div>
 	</form>
 </section>
+<div class="pad" style="text-align: center; margin-top: 50px;">Вы можежете удалить свой товар с магазина</div>
+<table id="baskets">
+	<th style="width: 120px"></th>
+	<th>Название</th>
+	<th style="width: 130px">Цена</th>
+	<th style="width: 50px;">Количества</th>
+	<th style="width: 50px;"></th>
+	<tr ng-repeat = "dash in vm.dash">
+		<td>
+			<img src="{{dash.link}}" width="120" height="70">
+		</td>
+		<td ng-bind = "dash.adv_name" ui-sref='index__content({id: dash
+		._id})' style="cursor: pointer;"></td>
+		<td ng-bind = "dash.new_price"></td>
+		<td>1</td>
+		<td ng-click="vm.deleteDash(dash)"  class="delete_basket">Удалить</td>
+	</tr>
+</table>

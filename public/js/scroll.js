@@ -28,3 +28,8 @@ window.onscroll = function () {
 	// 	conFilter.style.marginTop = (conFilter.style.marginTop + "50") + "px";
 	// }
 }
+
+onclickOnKey = () => {
+	var position = window.pageYOffset;
+	window.scrollTo(0, position);
+}
